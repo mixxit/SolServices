@@ -1,0 +1,4 @@
+D:\dev\git\SolServices\SolService\SolService\bin\SolService.dll
+D:\dev\git\SolServices\SolService\SolService\bin\SolService.pdb
+D:\dev\git\SolServices\SolService\SolService\obj\Release\SolService.dll
+D:\dev\git\SolServices\SolService\SolService\obj\Release\SolService.pdb

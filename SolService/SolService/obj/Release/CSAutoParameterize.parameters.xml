@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SolEntities-Web.config Connection String" description="SolEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/SolModel.csdl|res://*/SolModel.ssdl|res://*/SolModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQLEXPRESS;initial catalog=Sol;persist security info=True;user id=Sol;password=tmppass;multipleactiveresultsets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\dev\\git\\SolServices\\SolService\\SolService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SolEntities']/@connectionString" />
+  </parameter>
+</parameters>
