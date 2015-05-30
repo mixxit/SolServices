@@ -5,44 +5,44 @@
     <EntitySet Name="dbBiomes" EntityType="SolModel.dbBiome" />
     <EntitySet Name="dbBiomeTiles" EntityType="SolModel.dbBiomeTile" />
     <EntitySet Name="dbCelestials" EntityType="SolModel.dbCelestial" />
-    <EntitySet Name="dbCelestialTypes" EntityType="SolModel.dbCelestialType" />
     <EntitySet Name="dbCelestialTypeBiomes" EntityType="SolModel.dbCelestialTypeBiome" />
+    <EntitySet Name="dbCelestialTypes" EntityType="SolModel.dbCelestialType" />
     <EntitySet Name="dbLocations" EntityType="SolModel.dbLocation" />
     <EntitySet Name="dbPlayers" EntityType="SolModel.dbPlayer" />
     <EntitySet Name="dbTiles" EntityType="SolModel.dbTile" />
     <EntitySet Name="dbTileTypes" EntityType="SolModel.dbTileType" />
     <EntitySet Name="sysdiagrams" EntityType="SolModel.sysdiagram" />
     <AssociationSet Name="FK_dbPlayer_dbAccount" Association="SolModel.FK_dbPlayer_dbAccount">
-      <End Role="dbAccount" EntitySet="dbAccounts" />
-      <End Role="dbPlayer" EntitySet="dbPlayers" />
+      <End Role="dbAccounts" EntitySet="dbAccounts" />
+      <End Role="dbPlayers" EntitySet="dbPlayers" />
     </AssociationSet>
     <AssociationSet Name="FK_dbBiomeTile_dbBiome" Association="SolModel.FK_dbBiomeTile_dbBiome">
-      <End Role="dbBiome" EntitySet="dbBiomes" />
-      <End Role="dbBiomeTile" EntitySet="dbBiomeTiles" />
+      <End Role="dbBiomes" EntitySet="dbBiomes" />
+      <End Role="dbBiomeTiles" EntitySet="dbBiomeTiles" />
     </AssociationSet>
     <AssociationSet Name="FK_dbBiomeTile_dbTile" Association="SolModel.FK_dbBiomeTile_dbTile">
-      <End Role="dbTile" EntitySet="dbTiles" />
-      <End Role="dbBiomeTile" EntitySet="dbBiomeTiles" />
+      <End Role="dbTiles" EntitySet="dbTiles" />
+      <End Role="dbBiomeTiles" EntitySet="dbBiomeTiles" />
     </AssociationSet>
     <AssociationSet Name="FK_dbCelestial_dbCelestialType" Association="SolModel.FK_dbCelestial_dbCelestialType">
-      <End Role="dbCelestialType" EntitySet="dbCelestialTypes" />
-      <End Role="dbCelestial" EntitySet="dbCelestials" />
+      <End Role="dbCelestialTypes" EntitySet="dbCelestialTypes" />
+      <End Role="dbCelestials" EntitySet="dbCelestials" />
     </AssociationSet>
     <AssociationSet Name="FK_dbLocations_dbCelestial" Association="SolModel.FK_dbLocations_dbCelestial">
-      <End Role="dbCelestial" EntitySet="dbCelestials" />
-      <End Role="dbLocation" EntitySet="dbLocations" />
+      <End Role="dbCelestials" EntitySet="dbCelestials" />
+      <End Role="dbLocations" EntitySet="dbLocations" />
     </AssociationSet>
     <AssociationSet Name="FK_dbLocations_dbTile" Association="SolModel.FK_dbLocations_dbTile">
-      <End Role="dbTile" EntitySet="dbTiles" />
-      <End Role="dbLocation" EntitySet="dbLocations" />
+      <End Role="dbTiles" EntitySet="dbTiles" />
+      <End Role="dbLocations" EntitySet="dbLocations" />
     </AssociationSet>
     <AssociationSet Name="FK_dbPlayer_dbLocation" Association="SolModel.FK_dbPlayer_dbLocation">
-      <End Role="dbLocation" EntitySet="dbLocations" />
-      <End Role="dbPlayer" EntitySet="dbPlayers" />
+      <End Role="dbLocations" EntitySet="dbLocations" />
+      <End Role="dbPlayers" EntitySet="dbPlayers" />
     </AssociationSet>
     <AssociationSet Name="FK_Tile_TileType" Association="SolModel.FK_Tile_TileType">
-      <End Role="dbTileType" EntitySet="dbTileTypes" />
-      <End Role="dbTile" EntitySet="dbTiles" />
+      <End Role="dbTileTypes" EntitySet="dbTileTypes" />
+      <End Role="dbTiles" EntitySet="dbTiles" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="dbAccount">
@@ -54,7 +54,7 @@
     <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="email" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="guid" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="dbPlayers" Relationship="SolModel.FK_dbPlayer_dbAccount" FromRole="dbAccount" ToRole="dbPlayer" />
+    <NavigationProperty Name="dbPlayers" Relationship="SolModel.FK_dbPlayer_dbAccount" FromRole="dbAccounts" ToRole="dbPlayers" />
   </EntityType>
   <EntityType Name="dbBiome">
     <Key>
@@ -62,7 +62,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="dbBiomeTiles" Relationship="SolModel.FK_dbBiomeTile_dbBiome" FromRole="dbBiome" ToRole="dbBiomeTile" />
+    <NavigationProperty Name="dbBiomeTiles" Relationship="SolModel.FK_dbBiomeTile_dbBiome" FromRole="dbBiomes" ToRole="dbBiomeTiles" />
   </EntityType>
   <EntityType Name="dbBiomeTile">
     <Key>
@@ -71,8 +71,8 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="biome_id" Type="Int32" Nullable="false" />
     <Property Name="tile_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="dbBiome" Relationship="SolModel.FK_dbBiomeTile_dbBiome" FromRole="dbBiomeTile" ToRole="dbBiome" />
-    <NavigationProperty Name="dbTile" Relationship="SolModel.FK_dbBiomeTile_dbTile" FromRole="dbBiomeTile" ToRole="dbTile" />
+    <NavigationProperty Name="dbBiome" Relationship="SolModel.FK_dbBiomeTile_dbBiome" FromRole="dbBiomeTiles" ToRole="dbBiomes" />
+    <NavigationProperty Name="dbTile" Relationship="SolModel.FK_dbBiomeTile_dbTile" FromRole="dbBiomeTiles" ToRole="dbTiles" />
   </EntityType>
   <EntityType Name="dbCelestial">
     <Key>
@@ -85,17 +85,8 @@
     <Property Name="x" Type="Int32" Nullable="false" />
     <Property Name="y" Type="Int32" Nullable="false" />
     <Property Name="type_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="dbCelestialType" Relationship="SolModel.FK_dbCelestial_dbCelestialType" FromRole="dbCelestial" ToRole="dbCelestialType" />
-    <NavigationProperty Name="dbLocations" Relationship="SolModel.FK_dbLocations_dbCelestial" FromRole="dbCelestial" ToRole="dbLocation" />
-  </EntityType>
-  <EntityType Name="dbCelestialType">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="isworld" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="dbCelestials" Relationship="SolModel.FK_dbCelestial_dbCelestialType" FromRole="dbCelestialType" ToRole="dbCelestial" />
+    <NavigationProperty Name="dbCelestialType" Relationship="SolModel.FK_dbCelestial_dbCelestialType" FromRole="dbCelestials" ToRole="dbCelestialTypes" />
+    <NavigationProperty Name="dbLocations" Relationship="SolModel.FK_dbLocations_dbCelestial" FromRole="dbCelestials" ToRole="dbLocations" />
   </EntityType>
   <EntityType Name="dbCelestialTypeBiome">
     <Key>
@@ -104,6 +95,15 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="celestialtype_id" Type="Int32" Nullable="false" />
     <Property Name="biome_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="dbCelestialType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="isworld" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="dbCelestials" Relationship="SolModel.FK_dbCelestial_dbCelestialType" FromRole="dbCelestialTypes" ToRole="dbCelestials" />
   </EntityType>
   <EntityType Name="dbLocation">
     <Key>
@@ -114,9 +114,9 @@
     <Property Name="tile_id" Type="Int32" Nullable="false" />
     <Property Name="x" Type="Int32" Nullable="false" />
     <Property Name="y" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="dbCelestial" Relationship="SolModel.FK_dbLocations_dbCelestial" FromRole="dbLocation" ToRole="dbCelestial" />
-    <NavigationProperty Name="dbTile" Relationship="SolModel.FK_dbLocations_dbTile" FromRole="dbLocation" ToRole="dbTile" />
-    <NavigationProperty Name="dbPlayers" Relationship="SolModel.FK_dbPlayer_dbLocation" FromRole="dbLocation" ToRole="dbPlayer" />
+    <NavigationProperty Name="dbCelestial" Relationship="SolModel.FK_dbLocations_dbCelestial" FromRole="dbLocations" ToRole="dbCelestials" />
+    <NavigationProperty Name="dbTile" Relationship="SolModel.FK_dbLocations_dbTile" FromRole="dbLocations" ToRole="dbTiles" />
+    <NavigationProperty Name="dbPlayers" Relationship="SolModel.FK_dbPlayer_dbLocation" FromRole="dbLocations" ToRole="dbPlayers" />
   </EntityType>
   <EntityType Name="dbPlayer">
     <Key>
@@ -126,8 +126,8 @@
     <Property Name="name" Type="String" Nullable="false" MaxLength="22" Unicode="false" FixedLength="false" />
     <Property Name="owner_id" Type="Int32" Nullable="false" />
     <Property Name="location_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="dbAccount" Relationship="SolModel.FK_dbPlayer_dbAccount" FromRole="dbPlayer" ToRole="dbAccount" />
-    <NavigationProperty Name="dbLocation" Relationship="SolModel.FK_dbPlayer_dbLocation" FromRole="dbPlayer" ToRole="dbLocation" />
+    <NavigationProperty Name="dbAccount" Relationship="SolModel.FK_dbPlayer_dbAccount" FromRole="dbPlayers" ToRole="dbAccounts" />
+    <NavigationProperty Name="dbLocation" Relationship="SolModel.FK_dbPlayer_dbLocation" FromRole="dbPlayers" ToRole="dbLocations" />
   </EntityType>
   <EntityType Name="dbTile">
     <Key>
@@ -138,9 +138,9 @@
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="description" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
     <Property Name="prefab" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="dbBiomeTiles" Relationship="SolModel.FK_dbBiomeTile_dbTile" FromRole="dbTile" ToRole="dbBiomeTile" />
-    <NavigationProperty Name="dbLocations" Relationship="SolModel.FK_dbLocations_dbTile" FromRole="dbTile" ToRole="dbLocation" />
-    <NavigationProperty Name="dbTileType" Relationship="SolModel.FK_Tile_TileType" FromRole="dbTile" ToRole="dbTileType" />
+    <NavigationProperty Name="dbBiomeTiles" Relationship="SolModel.FK_dbBiomeTile_dbTile" FromRole="dbTiles" ToRole="dbBiomeTiles" />
+    <NavigationProperty Name="dbLocations" Relationship="SolModel.FK_dbLocations_dbTile" FromRole="dbTiles" ToRole="dbLocations" />
+    <NavigationProperty Name="dbTileType" Relationship="SolModel.FK_Tile_TileType" FromRole="dbTiles" ToRole="dbTileTypes" />
   </EntityType>
   <EntityType Name="dbTileType">
     <Key>
@@ -148,7 +148,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-    <NavigationProperty Name="dbTiles" Relationship="SolModel.FK_Tile_TileType" FromRole="dbTileType" ToRole="dbTile" />
+    <NavigationProperty Name="dbTiles" Relationship="SolModel.FK_Tile_TileType" FromRole="dbTileTypes" ToRole="dbTiles" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -161,97 +161,97 @@
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK_dbPlayer_dbAccount">
-    <End Role="dbAccount" Type="SolModel.dbAccount" Multiplicity="1" />
-    <End Role="dbPlayer" Type="SolModel.dbPlayer" Multiplicity="*" />
+    <End Role="dbAccounts" Type="SolModel.dbAccount" Multiplicity="1" />
+    <End Role="dbPlayers" Type="SolModel.dbPlayer" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbAccount">
+      <Principal Role="dbAccounts">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbPlayer">
+      <Dependent Role="dbPlayers">
         <PropertyRef Name="owner_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbBiomeTile_dbBiome">
-    <End Role="dbBiome" Type="SolModel.dbBiome" Multiplicity="1" />
-    <End Role="dbBiomeTile" Type="SolModel.dbBiomeTile" Multiplicity="*" />
+    <End Role="dbBiomes" Type="SolModel.dbBiome" Multiplicity="1" />
+    <End Role="dbBiomeTiles" Type="SolModel.dbBiomeTile" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbBiome">
+      <Principal Role="dbBiomes">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbBiomeTile">
+      <Dependent Role="dbBiomeTiles">
         <PropertyRef Name="biome_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbBiomeTile_dbTile">
-    <End Role="dbTile" Type="SolModel.dbTile" Multiplicity="1" />
-    <End Role="dbBiomeTile" Type="SolModel.dbBiomeTile" Multiplicity="*" />
+    <End Role="dbTiles" Type="SolModel.dbTile" Multiplicity="1" />
+    <End Role="dbBiomeTiles" Type="SolModel.dbBiomeTile" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbTile">
+      <Principal Role="dbTiles">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbBiomeTile">
+      <Dependent Role="dbBiomeTiles">
         <PropertyRef Name="tile_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbCelestial_dbCelestialType">
-    <End Role="dbCelestialType" Type="SolModel.dbCelestialType" Multiplicity="1" />
-    <End Role="dbCelestial" Type="SolModel.dbCelestial" Multiplicity="*" />
+    <End Role="dbCelestialTypes" Type="SolModel.dbCelestialType" Multiplicity="1" />
+    <End Role="dbCelestials" Type="SolModel.dbCelestial" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbCelestialType">
+      <Principal Role="dbCelestialTypes">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbCelestial">
+      <Dependent Role="dbCelestials">
         <PropertyRef Name="type_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbLocations_dbCelestial">
-    <End Role="dbCelestial" Type="SolModel.dbCelestial" Multiplicity="1" />
-    <End Role="dbLocation" Type="SolModel.dbLocation" Multiplicity="*" />
+    <End Role="dbCelestials" Type="SolModel.dbCelestial" Multiplicity="1" />
+    <End Role="dbLocations" Type="SolModel.dbLocation" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbCelestial">
+      <Principal Role="dbCelestials">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbLocation">
+      <Dependent Role="dbLocations">
         <PropertyRef Name="celestial_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbLocations_dbTile">
-    <End Role="dbTile" Type="SolModel.dbTile" Multiplicity="1" />
-    <End Role="dbLocation" Type="SolModel.dbLocation" Multiplicity="*" />
+    <End Role="dbTiles" Type="SolModel.dbTile" Multiplicity="1" />
+    <End Role="dbLocations" Type="SolModel.dbLocation" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbTile">
+      <Principal Role="dbTiles">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbLocation">
+      <Dependent Role="dbLocations">
         <PropertyRef Name="tile_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbPlayer_dbLocation">
-    <End Role="dbLocation" Type="SolModel.dbLocation" Multiplicity="1" />
-    <End Role="dbPlayer" Type="SolModel.dbPlayer" Multiplicity="*" />
+    <End Role="dbLocations" Type="SolModel.dbLocation" Multiplicity="1" />
+    <End Role="dbPlayers" Type="SolModel.dbPlayer" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbLocation">
+      <Principal Role="dbLocations">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbPlayer">
+      <Dependent Role="dbPlayers">
         <PropertyRef Name="location_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Tile_TileType">
-    <End Role="dbTileType" Type="SolModel.dbTileType" Multiplicity="1" />
-    <End Role="dbTile" Type="SolModel.dbTile" Multiplicity="*" />
+    <End Role="dbTileTypes" Type="SolModel.dbTileType" Multiplicity="1" />
+    <End Role="dbTiles" Type="SolModel.dbTile" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="dbTileType">
+      <Principal Role="dbTileTypes">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="dbTile">
+      <Dependent Role="dbTiles">
         <PropertyRef Name="type_id" />
       </Dependent>
     </ReferentialConstraint>

@@ -20,6 +20,21 @@ namespace SolService
             this.accountManager = new AccountManager();
         }
 
+        public Scene GetPlayerFullWorld(Guid playertoken)
+        {
+            Player player = this.accountManager.GetPlayerByToken(playertoken);
+            if (player == null)
+            {
+                return null;
+            }
+
+            Scene scene = new Scene();
+            scene.SetPlayer(player);
+            scene.BuildFullWorld();
+
+            return scene;
+        }
+
         public Scene GetPlayerScene(Guid playertoken)
         {
             Player player = this.accountManager.GetPlayerByToken(playertoken);

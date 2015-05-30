@@ -19,14 +19,14 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbPlayer_dbAccount", "dbAccount", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbAccount), "dbPlayer", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbPlayer), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbBiomeTile_dbBiome", "dbBiome", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbBiome), "dbBiomeTile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbBiomeTile), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbBiomeTile_dbTile", "dbTile", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbTile), "dbBiomeTile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbBiomeTile), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbCelestial_dbCelestialType", "dbCelestialType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbCelestialType), "dbCelestial", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbCelestial), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbLocations_dbCelestial", "dbCelestial", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbCelestial), "dbLocation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbLocation), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbLocations_dbTile", "dbTile", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbTile), "dbLocation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbLocation), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_dbPlayer_dbLocation", "dbLocation", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbLocation), "dbPlayer", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbPlayer), true)]
-[assembly: EdmRelationshipAttribute("SolModel", "FK_Tile_TileType", "dbTileType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbTileType), "dbTile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbTile), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbPlayer_dbAccount", "dbAccounts", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbAccount), "dbPlayers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbPlayer), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbBiomeTile_dbBiome", "dbBiomes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbBiome), "dbBiomeTiles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbBiomeTile), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbBiomeTile_dbTile", "dbTiles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbTile), "dbBiomeTiles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbBiomeTile), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbCelestial_dbCelestialType", "dbCelestialTypes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbCelestialType), "dbCelestials", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbCelestial), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbLocations_dbCelestial", "dbCelestials", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbCelestial), "dbLocations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbLocation), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbLocations_dbTile", "dbTiles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbTile), "dbLocations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbLocation), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_dbPlayer_dbLocation", "dbLocations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbLocation), "dbPlayers", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbPlayer), true)]
+[assembly: EdmRelationshipAttribute("SolModel", "FK_Tile_TileType", "dbTileTypes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SolService.dbTileType), "dbTiles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SolService.dbTile), true)]
 
 #endregion
 
@@ -145,22 +145,6 @@ namespace SolService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<dbCelestialType> dbCelestialTypes
-        {
-            get
-            {
-                if ((_dbCelestialTypes == null))
-                {
-                    _dbCelestialTypes = base.CreateObjectSet<dbCelestialType>("dbCelestialTypes");
-                }
-                return _dbCelestialTypes;
-            }
-        }
-        private ObjectSet<dbCelestialType> _dbCelestialTypes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<dbCelestialTypeBiome> dbCelestialTypeBiomes
         {
             get
@@ -173,6 +157,22 @@ namespace SolService
             }
         }
         private ObjectSet<dbCelestialTypeBiome> _dbCelestialTypeBiomes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<dbCelestialType> dbCelestialTypes
+        {
+            get
+            {
+                if ((_dbCelestialTypes == null))
+                {
+                    _dbCelestialTypes = base.CreateObjectSet<dbCelestialType>("dbCelestialTypes");
+                }
+                return _dbCelestialTypes;
+            }
+        }
+        private ObjectSet<dbCelestialType> _dbCelestialTypes;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -291,19 +291,19 @@ namespace SolService
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the dbCelestialTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTodbCelestialTypes(dbCelestialType dbCelestialType)
-        {
-            base.AddObject("dbCelestialTypes", dbCelestialType);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the dbCelestialTypeBiomes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTodbCelestialTypeBiomes(dbCelestialTypeBiome dbCelestialTypeBiome)
         {
             base.AddObject("dbCelestialTypeBiomes", dbCelestialTypeBiome);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the dbCelestialTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTodbCelestialTypes(dbCelestialType dbCelestialType)
+        {
+            base.AddObject("dbCelestialTypes", dbCelestialType);
         }
     
         /// <summary>
@@ -521,18 +521,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbAccount", "dbPlayer")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbAccount", "dbPlayers")]
         public EntityCollection<dbPlayer> dbPlayers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbAccount", "dbPlayer");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbAccount", "dbPlayers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbAccount", "dbPlayer", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbAccount", "dbPlayers", value);
                 }
             }
         }
@@ -630,18 +630,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbBiome", "dbBiomeTile")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbBiome", "dbBiomeTiles")]
         public EntityCollection<dbBiomeTile> dbBiomeTiles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomeTile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomeTiles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomeTile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomeTiles", value);
                 }
             }
         }
@@ -765,16 +765,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbBiome", "dbBiome")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbBiome", "dbBiomes")]
         public dbBiome dbBiome
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiome").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomes").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiome").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomes").Value = value;
             }
         }
         /// <summary>
@@ -786,13 +786,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiome");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomes");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiome", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbBiome>("SolModel.FK_dbBiomeTile_dbBiome", "dbBiomes", value);
                 }
             }
         }
@@ -803,16 +803,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbTile", "dbTile")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbTile", "dbTiles")]
         public dbTile dbTile
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTile").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTiles").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTile").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTiles").Value = value;
             }
         }
         /// <summary>
@@ -824,13 +824,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTiles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbTile>("SolModel.FK_dbBiomeTile_dbTile", "dbTiles", value);
                 }
             }
         }
@@ -1058,16 +1058,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbCelestial_dbCelestialType", "dbCelestialType")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbCelestial_dbCelestialType", "dbCelestialTypes")]
         public dbCelestialType dbCelestialType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialTypes").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialTypes").Value = value;
             }
         }
         /// <summary>
@@ -1079,13 +1079,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialTypes");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbCelestialType>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestialTypes", value);
                 }
             }
         }
@@ -1096,18 +1096,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbCelestial", "dbLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbCelestial", "dbLocations")]
         public EntityCollection<dbLocation> dbLocations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbCelestial", "dbLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbCelestial", "dbLocations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbCelestial", "dbLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbCelestial", "dbLocations", value);
                 }
             }
         }
@@ -1231,18 +1231,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbCelestial_dbCelestialType", "dbCelestial")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbCelestial_dbCelestialType", "dbCelestials")]
         public EntityCollection<dbCelestial> dbCelestials
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbCelestial>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestial");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbCelestial>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestials");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbCelestial>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestial", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbCelestial>("SolModel.FK_dbCelestial_dbCelestialType", "dbCelestials", value);
                 }
             }
         }
@@ -1527,16 +1527,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbCelestial", "dbCelestial")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbCelestial", "dbCelestials")]
         public dbCelestial dbCelestial
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestial").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestials").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestial").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestials").Value = value;
             }
         }
         /// <summary>
@@ -1548,13 +1548,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestial");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestials");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestial", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbCelestial>("SolModel.FK_dbLocations_dbCelestial", "dbCelestials", value);
                 }
             }
         }
@@ -1565,16 +1565,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbTile", "dbTile")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbTile", "dbTiles")]
         public dbTile dbTile
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTile").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTiles").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTile").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTiles").Value = value;
             }
         }
         /// <summary>
@@ -1586,13 +1586,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTiles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbTile>("SolModel.FK_dbLocations_dbTile", "dbTiles", value);
                 }
             }
         }
@@ -1603,18 +1603,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbLocation", "dbPlayer")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbLocation", "dbPlayers")]
         public EntityCollection<dbPlayer> dbPlayers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbLocation", "dbPlayer");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbLocation", "dbPlayers");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbLocation", "dbPlayer", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbPlayer>("SolModel.FK_dbPlayer_dbLocation", "dbPlayers", value);
                 }
             }
         }
@@ -1764,16 +1764,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbAccount", "dbAccount")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbAccount", "dbAccounts")]
         public dbAccount dbAccount
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccount").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccounts").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccount").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccounts").Value = value;
             }
         }
         /// <summary>
@@ -1785,13 +1785,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccount");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccounts");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccount", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbAccount>("SolModel.FK_dbPlayer_dbAccount", "dbAccounts", value);
                 }
             }
         }
@@ -1802,16 +1802,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbLocation", "dbLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbPlayer_dbLocation", "dbLocations")]
         public dbLocation dbLocation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocation").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocations").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocation").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocations").Value = value;
             }
         }
         /// <summary>
@@ -1823,13 +1823,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbLocation>("SolModel.FK_dbPlayer_dbLocation", "dbLocations", value);
                 }
             }
         }
@@ -2005,18 +2005,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbTile", "dbBiomeTile")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbBiomeTile_dbTile", "dbBiomeTiles")]
         public EntityCollection<dbBiomeTile> dbBiomeTiles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbTile", "dbBiomeTile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbTile", "dbBiomeTiles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbTile", "dbBiomeTile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbBiomeTile>("SolModel.FK_dbBiomeTile_dbTile", "dbBiomeTiles", value);
                 }
             }
         }
@@ -2027,18 +2027,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbTile", "dbLocation")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_dbLocations_dbTile", "dbLocations")]
         public EntityCollection<dbLocation> dbLocations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbTile", "dbLocation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbTile", "dbLocations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbTile", "dbLocation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbLocation>("SolModel.FK_dbLocations_dbTile", "dbLocations", value);
                 }
             }
         }
@@ -2049,16 +2049,16 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_Tile_TileType", "dbTileType")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_Tile_TileType", "dbTileTypes")]
         public dbTileType dbTileType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileTypes").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileTypes").Value = value;
             }
         }
         /// <summary>
@@ -2070,13 +2070,13 @@ namespace SolService
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileTypes");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<dbTileType>("SolModel.FK_Tile_TileType", "dbTileTypes", value);
                 }
             }
         }
@@ -2174,18 +2174,18 @@ namespace SolService
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_Tile_TileType", "dbTile")]
+        [EdmRelationshipNavigationPropertyAttribute("SolModel", "FK_Tile_TileType", "dbTiles")]
         public EntityCollection<dbTile> dbTiles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbTile>("SolModel.FK_Tile_TileType", "dbTile");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbTile>("SolModel.FK_Tile_TileType", "dbTiles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbTile>("SolModel.FK_Tile_TileType", "dbTile", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbTile>("SolModel.FK_Tile_TileType", "dbTiles", value);
                 }
             }
         }

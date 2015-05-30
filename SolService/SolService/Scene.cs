@@ -9,10 +9,19 @@ namespace SolService
     public class Scene
     {
         private Player player;
-        public List<Location> locations;
+        public List<Location> locations = new List<Location>();
 
         // Default scene height/width
         private int scenesize = 9;
+
+        public void BuildFullWorld()
+        {
+            Debug.WriteLine("Building full world.....");
+            World world = new World();
+            world.Load(player.GetWorldID());
+            locations = world.GetLocations();
+
+        }
 
         public void Build()
         {
@@ -23,13 +32,27 @@ namespace SolService
 
             World world = new World();
             world.Load(player.GetWorldID());
-            Debug.WriteLine("Locating scene tiles.......");
             locations = world.GetLocationsAround(player.GetX(), player.GetY(), (int)Math.Floor(Convert.ToDouble(scenesize) / 2));
         }
 
         public void SetPlayer(Player player)
         {
             this.player = player;
+        }
+
+        public List<Location> GetLocations()
+        {
+            return this.locations;
+        }
+
+        public void AddLocation(Location location)
+        {
+            this.locations.Add(location);
+        }
+
+        public void SetLocations(List<Location> locations)
+        {
+            this.locations = locations;
         }
     }
 }

@@ -2,3 +2,8 @@ D:\dev\git\SolServices\SolService\SolService\bin\SolService.dll
 D:\dev\git\SolServices\SolService\SolService\bin\SolService.pdb
 D:\dev\git\SolServices\SolService\SolService\obj\Debug\SolService.dll
 D:\dev\git\SolServices\SolService\SolService\obj\Debug\SolService.pdb
+C:\dev\SolServices\SolService\SolService\obj\Debug\SolService.dll
+C:\dev\SolServices\SolService\SolService\bin\SolService.dll
+C:\dev\SolServices\SolService\SolService\bin\SolService.pdb
+C:\dev\SolServices\SolService\SolService\obj\Debug\SolService.pdb
+C:\dev\SolServices\SolService\SolService\obj\Debug\SolService.csprojResolveAssemblyReference.cache

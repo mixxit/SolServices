@@ -23,6 +23,13 @@ namespace SolService
         }
 
         [WebMethod]
+        public Scene GetSceneFull(String playertoken)
+        {
+            return this.gameManager.GetPlayerFullWorld(Guid.Parse(playertoken));
+
+        }
+
+        [WebMethod]
         public Scene GetScene(String playertoken)
         {
             return this.gameManager.GetPlayerScene(Guid.Parse(playertoken));

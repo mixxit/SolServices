@@ -7,11 +7,12 @@ namespace SolService
 {
     public class Location
     {
-        private int id;
-        private int x;
-        private int y;
+        public int id;
+        public int x;
+        public int y;
         private int tile_id;
         private int world_id;
+        public SceneTile scenetile;
 
         public Location()
         {
@@ -32,8 +33,21 @@ namespace SolService
                 SetY(dblocation.y);
                 SetWorldID(dblocation.celestial_id);
                 SetTileID(dblocation.tile_id);
-                
+
+                SceneTile scenetile = new SceneTile();
+                scenetile.Load(dblocation.tile_id);
+                this.scenetile = scenetile;
             }
+        }
+
+        public void SetSceneTile(SceneTile scenetile)
+        {
+            this.scenetile = scenetile;
+        }
+
+        public SceneTile GetSCeneTile()
+        {
+            return this.scenetile;
         }
 
         public int GetID()

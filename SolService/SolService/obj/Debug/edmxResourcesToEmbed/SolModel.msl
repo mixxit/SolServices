@@ -3,7 +3,7 @@
   <EntityContainerMapping StorageEntityContainer="SolModelStoreContainer" CdmEntityContainer="SolEntities">
     <EntitySetMapping Name="dbAccounts">
       <EntityTypeMapping TypeName="SolModel.dbAccount">
-        <MappingFragment StoreEntitySet="dbAccount">
+        <MappingFragment StoreEntitySet="dbAccounts">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="password" ColumnName="password" />
@@ -14,7 +14,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="dbBiomes">
       <EntityTypeMapping TypeName="SolModel.dbBiome">
-        <MappingFragment StoreEntitySet="dbBiome">
+        <MappingFragment StoreEntitySet="dbBiomes">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
@@ -22,7 +22,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="dbBiomeTiles">
       <EntityTypeMapping TypeName="SolModel.dbBiomeTile">
-        <MappingFragment StoreEntitySet="dbBiomeTile">
+        <MappingFragment StoreEntitySet="dbBiomeTiles">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="biome_id" ColumnName="biome_id" />
           <ScalarProperty Name="tile_id" ColumnName="tile_id" />
@@ -31,7 +31,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="dbCelestials">
       <EntityTypeMapping TypeName="SolModel.dbCelestial">
-        <MappingFragment StoreEntitySet="dbCelestial">
+        <MappingFragment StoreEntitySet="dbCelestials">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="width" ColumnName="width" />
@@ -42,27 +42,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="dbCelestialTypes">
-      <EntityTypeMapping TypeName="SolModel.dbCelestialType">
-        <MappingFragment StoreEntitySet="dbCelestialType">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="isworld" ColumnName="isworld" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="dbCelestialTypeBiomes">
       <EntityTypeMapping TypeName="SolModel.dbCelestialTypeBiome">
-        <MappingFragment StoreEntitySet="dbCelestialTypeBiome">
+        <MappingFragment StoreEntitySet="dbCelestialTypeBiomes">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="celestialtype_id" ColumnName="celestialtype_id" />
           <ScalarProperty Name="biome_id" ColumnName="biome_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="dbCelestialTypes">
+      <EntityTypeMapping TypeName="SolModel.dbCelestialType">
+        <MappingFragment StoreEntitySet="dbCelestialTypes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isworld" ColumnName="isworld" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="dbLocations">
       <EntityTypeMapping TypeName="SolModel.dbLocation">
-        <MappingFragment StoreEntitySet="dbLocation">
+        <MappingFragment StoreEntitySet="dbLocations">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="celestial_id" ColumnName="celestial_id" />
           <ScalarProperty Name="tile_id" ColumnName="tile_id" />
@@ -73,7 +73,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="dbPlayers">
       <EntityTypeMapping TypeName="SolModel.dbPlayer">
-        <MappingFragment StoreEntitySet="dbPlayer">
+        <MappingFragment StoreEntitySet="dbPlayers">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="owner_id" ColumnName="owner_id" />
@@ -83,7 +83,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="dbTiles">
       <EntityTypeMapping TypeName="SolModel.dbTile">
-        <MappingFragment StoreEntitySet="dbTile">
+        <MappingFragment StoreEntitySet="dbTiles">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="type_id" ColumnName="type_id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -94,7 +94,7 @@
     </EntitySetMapping>
     <EntitySetMapping Name="dbTileTypes">
       <EntityTypeMapping TypeName="SolModel.dbTileType">
-        <MappingFragment StoreEntitySet="dbTileType">
+        <MappingFragment StoreEntitySet="dbTileTypes">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>

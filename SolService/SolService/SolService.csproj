@@ -68,12 +68,14 @@
     <Compile Include="AccountManager.cs" />
     <Compile Include="Biome.cs" />
     <Compile Include="BiomeTile.cs" />
+    <Compile Include="Celestial.cs" />
     <Compile Include="CelestialType.cs" />
     <Compile Include="CelestialTypeBiome.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scene.cs" />
+    <Compile Include="SceneTile.cs" />
     <Compile Include="SolModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
